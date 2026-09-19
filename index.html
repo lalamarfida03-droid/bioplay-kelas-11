@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BioPlay 11 — Belajar Biologi Jadi Seru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#17352b;--green:#39a96b;--mint:#dff7e8;--lime:#b9ef7b;--cream:#fffaf0;--pink:#ff9fb2;--purple:#8d7cf6;--yellow:#ffd75a;--red:#ff6f7d;--card:#fff}
+*{box-sizing:border-box}body{margin:0;font-family:Nunito,sans-serif;color:var(--ink);background:#effbea;overflow-x:hidden}
+h1,h2,h3,.brand{font-family:"Baloo 2",cursive}
+button{font:inherit;cursor:pointer;border:0}.hidden{display:none!important}
+.bg-bubble{position:fixed;border-radius:50%;opacity:.35;z-index:-1}.b1{width:240px;height:240px;background:#c8f2a5;top:80px;left:-100px}.b2{width:300px;height:300px;background:#ffc9d5;right:-130px;top:420px}.b3{width:180px;height:180px;background:#b9d8ff;left:40%;bottom:-70px}
+nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:12px 5%;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);box-shadow:0 4px 20px #17352b12}
+.brand{font-size:27px;font-weight:800;color:var(--green)}.brand span{color:var(--purple)}
+.navlinks{display:flex;gap:8px;flex-wrap:wrap}.navlinks button{background:transparent;padding:9px 12px;border-radius:14px;color:var(--ink);font-weight:800}.navlinks button:hover,.navlinks button.active{background:var(--mint);color:#147a46}
+main{max-width:1180px;margin:auto;padding:28px 5% 70px}
+.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:22px;align-items:center;padding:36px 0}
+.hero h1{font-size:58px;line-height:.95;margin:0 0 14px}.hero h1 span{color:var(--green)}.hero p{font-size:18px;line-height:1.6;max-width:680px}
+.cta{display:flex;gap:10px;flex-wrap:wrap}.btn{padding:12px 18px;border-radius:16px;font-weight:900;background:var(--green);color:white;box-shadow:0 7px 0 #27814f}.btn.alt{background:#fff;color:var(--ink);box-shadow:0 7px 0 #dce8dd}.btn.purple{background:var(--purple);box-shadow:0 7px 0 #6859cc}
+.mascot{min-height:300px;display:flex;align-items:center;justify-content:center;position:relative}.cell{width:225px;height:225px;border-radius:45% 55% 50% 50%;background:#b9ef7b;border:7px solid #2d8758;box-shadow:inset 0 0 0 15px #dff7e8,0 20px 40px #17352b20;animation:float 3s ease-in-out infinite;position:relative}.cell:before,.cell:after{content:"";position:absolute;width:20px;height:28px;border-radius:50%;background:#17352b;top:72px}.cell:before{left:62px}.cell:after{right:62px}.smile{position:absolute;width:58px;height:30px;border-bottom:6px solid #17352b;border-radius:50%;left:76px;top:106px}.leaf{position:absolute;width:55px;height:28px;background:#39a96b;border-radius:100% 0 100% 0;right:5px;top:0;transform:rotate(-25deg)}.spark{position:absolute;font-size:30px;animation:bob 2s infinite}.s1{left:12%;top:20%}.s2{right:8%;top:28%;animation-delay:.5s}.s3{left:20%;bottom:15%;animation-delay:1s}@keyframes float{50%{transform:translateY(-10px) rotate(2deg)}}@keyframes bob{50%{transform:translateY(-8px) rotate(8deg)}}
+.section{margin-top:45px}.section h2{font-size:38px;margin:0 0 8px}.sub{color:#56756a;margin-top:0}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#fff;border:2px solid #e0eee3;border-radius:24px;padding:22px;box-shadow:0 10px 28px #17352b0d}.icon{font-size:42px}.card h3{font-size:24px;margin:5px 0}.tag{display:inline-block;background:var(--mint);padding:5px 10px;border-radius:99px;font-size:12px;font-weight:900;margin:3px}
+.view{display:none}.view.active{display:block}
+.game-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.game-card{min-height:230px;position:relative;overflow:hidden}.game-card .game-art{font-size:68px;float:right;margin-left:10px}.game-card p{line-height:1.5}.game-card button{margin-top:12px}
+.game-top{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}.pill{padding:7px 11px;border-radius:99px;background:#fff;border:2px solid #dce9df;font-weight:900}.game-board{background:#17352b;border-radius:26px;padding:18px;color:white;box-shadow:0 12px 30px #17352b25}.maze{display:grid;grid-template-columns:repeat(9,1fr);max-width:540px;aspect-ratio:1;margin:14px auto;background:#dff7e8;border:8px solid #0f5a39;border-radius:15px;overflow:hidden}.maze-cell{display:flex;align-items:center;justify-content:center;aspect-ratio:1;font-size:23px}.wall{background:#3f8e5f}.floor{background:#effbea}.player{font-size:29px;filter:drop-shadow(0 2px 2px #0003)}.exit{font-size:26px}.controls{display:grid;grid-template-columns:repeat(3,62px);gap:7px;justify-content:center;margin-top:10px}.controls button{height:52px;border-radius:14px;background:#fff;color:var(--ink);font-size:22px;font-weight:900}.controls .blank{visibility:hidden}
+.questionbox{background:#fff;color:var(--ink);border-radius:18px;padding:16px;margin-top:15px}.options{display:grid;grid-template-columns:1fr 1fr;gap:9px}.option{padding:12px;text-align:left;border:2px solid #dce9df;background:#f9fffa;border-radius:14px;font-weight:800}.option:hover{border-color:var(--green)}.option.correct{background:#c9f4d5;border-color:#39a96b}.option.wrong{background:#ffd5da;border-color:#ff6f7d}.status{font-weight:900;margin-top:8px;min-height:24px}
+.battle{background:linear-gradient(135deg,#201b45,#34285d);border-radius:26px;padding:22px;color:white;position:relative;overflow:hidden}.arena{display:flex;justify-content:space-around;align-items:center;min-height:230px}.herochar,.monster{font-size:100px;animation:bob 2.3s infinite}.monster{animation-delay:.5s}.hp{height:15px;background:#ffffff33;border-radius:99px;overflow:hidden;margin-top:5px}.hp i{display:block;height:100%;background:#ff6f7d;width:100%;transition:.4s}.playerhp i{background:#b9ef7b}.battle .questionbox{color:var(--ink)}
+.levels{display:flex;gap:7px;flex-wrap:wrap}.level{padding:8px 12px;border-radius:99px;background:#fff;border:2px solid #dce9df;font-weight:900}.level.done{background:#b9ef7b}.level.current{border-color:#8d7cf6}
+.practice-controls{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}.select,.input{padding:11px 13px;border:2px solid #dce9df;border-radius:13px;background:#fff;font:inherit}.result{font-weight:900}
+.notes{display:grid;grid-template-columns:280px 1fr;gap:18px}.topic-list button{display:block;width:100%;text-align:left;padding:13px;margin-bottom:8px;border-radius:14px;background:#fff;border:2px solid #e2eee5;font-weight:900}.topic-list button.active{background:var(--mint);border-color:#93d5aa}.note-content{background:#fff;border-radius:24px;padding:25px;border:2px solid #e2eee5;line-height:1.7}.note-content h3{font-size:30px}.note-content li{margin:8px 0}
+.pomo{max-width:650px;margin:auto;text-align:center;background:#fff;padding:30px;border-radius:28px;border:2px solid #e2eee5}.timer{font-family:"Baloo 2";font-size:90px;font-weight:800;line-height:1;color:#2e8b57;margin:12px}.preset{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.preset button{background:#effbea;padding:10px 13px;border-radius:14px;font-weight:900;border:2px solid #dce9df}.preset button:hover{border-color:var(--green)}.custom{margin:18px 0}.custom input{width:85px}
+footer{text-align:center;padding:28px;color:#60786e}
+.toast{position:fixed;right:20px;bottom:20px;background:#17352b;color:#fff;padding:14px 18px;border-radius:16px;opacity:0;transform:translateY(20px);transition:.3s;z-index:50}.toast.show{opacity:1;transform:none}
+@media(max-width:800px){.hero,.game-grid,.notes,.cards{grid-template-columns:1fr}.hero h1{font-size:45px}.navlinks{display:none}.maze{max-width:100%}.options{grid-template-columns:1fr}.arena{min-height:170px}.herochar,.monster{font-size:75px}}
+</style>
+</head>
+<body>
+<div class="bg-bubble b1"></div><div class="bg-bubble b2"></div><div class="bg-bubble b3"></div>
+<nav><div class="brand">🧬 Bio<span>Play</span> 11</div><div class="navlinks">
+<button data-view="home" class="active">🏠 Beranda</button><button data-view="games">🎮 Game</button><button data-view="practice">📝 Latihan</button><button data-view="notes">📚 Materi</button><button data-view="pomodoro">⏱️ Pomodoro</button>
+</div></nav>
+<main>
+<section id="home" class="view active">
+<div class="hero"><div><div class="tag">🌱 Kelas 11 • Biologi</div><h1>Belajar nggak harus <span>membosankan!</span></h1><p>Selamat datang di BioPlay 11 — ruang belajar interaktif dengan game, latihan soal, rangkuman materi, dan Pomodoro. Yuk belajar sedikit demi sedikit, tapi konsisten! 🧪✨</p><div class="cta"><button class="btn" onclick="showView('games')">🎮 Mulai Petualangan</button><button class="btn alt" onclick="showView('notes')">📚 Buka Materi</button></div></div>
+<div class="mascot"><div class="spark s1">🦠</div><div class="spark s2">🔬</div><div class="spark s3">🌿</div><div class="cell"><div class="smile"></div><div class="leaf"></div></div></div></div>
+<div class="section"><h2>🌟 Pilih cara belajarmu</h2><p class="sub">Kamu bisa berpindah menu kapan saja.</p><div class="cards">
+<div class="card"><div class="icon">🧩</div><h3>Maze Biology</h3><p>Gerakkan karakter melewati labirin. Temukan jalan keluar sambil menjawab soal biologi yang diacak.</p><button class="btn" onclick="startMaze()">Mainkan</button></div>
+<div class="card"><div class="icon">👾</div><h3>Bio Battle</h3><p>Lawan monster atau bakteri di setiap level. Jawab soal untuk menyerang dan lanjut ke level berikutnya.</p><button class="btn purple" onclick="startBattle()">Mainkan</button></div>
+<div class="card"><div class="icon">⏱️</div><h3>Focus Zone</h3><p>Atur durasi fokus sesuai kebutuhan atau gunakan preset waktu belajar yang sudah disiapkan.</p><button class="btn alt" onclick="showView('pomodoro')">Fokus</button></div>
+</div></div>
+</section>
+
+<section id="games" class="view">
+<h2>🎮 Bio Game Zone</h2><p class="sub">Ada dua game. Masing-masing punya 5 level dan soal yang diacak.</p>
+<div id="gameMenu" class="game-grid">
+<div class="card game-card"><div class="game-art">🧑‍🔬🧬</div><h3>Maze Biology</h3><p>Gunakan tombol panah atau WASD. Cari 🚪 untuk keluar. Setiap pintu keluar memunculkan soal acak.</p><button class="btn" onclick="startMaze()">Mulai Maze</button></div>
+<div class="card game-card"><div class="game-art">🦠⚔️</div><h3>Bio Battle</h3><p>Jawaban benar memberi serangan. Jawaban salah membuat HP-mu berkurang. Jika kalah, kembali ke level sebelumnya.</p><button class="btn purple" onclick="startBattle()">Mulai Battle</button></div>
+</div>
+<div id="mazeGame" class="hidden"></div><div id="battleGame" class="hidden"></div>
+</section>
+
+<section id="practice" class="view">
+<h2>📝 Latihan Soal</h2><p class="sub">Mode latihan biasa tanpa game. Soal dipilih secara acak.</p>
+<div class="card"><div class="practice-controls"><select id="topicFilter" class="select"><option value="all">Semua Materi</option><option value="cell">Sel</option><option value="tissue">Jaringan</option><option value="movement">Sistem Gerak</option><option value="circulation">Sistem Peredaran Darah</option><option value="digestion">Sistem Pencernaan</option><option value="respiration">Sistem Pernapasan</option><option value="excretion">Sistem Ekskresi</option></select><button class="btn" onclick="newPractice()">🎲 Soal Acak</button></div><div id="practiceArea"></div></div>
+</section>
+
+<section id="notes" class="view">
+<h2>📚 Catatan & Rangkuman Biologi 11</h2><p class="sub">Ringkasan singkat untuk membantu mengulang konsep inti.</p>
+<div class="notes"><div class="topic-list" id="topicList"></div><article id="noteContent" class="note-content"></article></div>
+</section>
+
+<section id="pomodoro" class="view">
+<h2>⏱️ Focus Zone</h2><p class="sub">Pilih preset atau masukkan durasi sendiri. Preset tidak perlu diubah-ubah.</p>
+<div class="pomo"><div class="tag">🌿 Mode fokus</div><div id="timer" class="timer">25:00</div><div id="pomoState" class="status">Siap belajar?</div>
+<div class="preset"><button onclick="setTimer(15)">🌱 15 menit</button><button onclick="setTimer(25)">🍀 25 menit</button><button onclick="setTimer(45)">🧠 45 menit</button><button onclick="setTimer(50)">🔬 50 menit</button></div>
+<div class="custom"><label><b>Durasi sendiri:</b> <input id="customMin" class="input" type="number" min="1" max="180" value="25"> menit</label> <button class="btn" onclick="setCustom()">Gunakan</button></div>
+<button class="btn" onclick="toggleTimer()" id="timerBtn">▶ Mulai</button> <button class="btn alt" onclick="resetTimer()">↺ Reset</button>
+<p style="margin-top:22px"><b>💡 Saran:</b> 25 menit cocok untuk mulai fokus; 45–50 menit cocok untuk sesi belajar yang lebih panjang. Setelah fokus, ambil jeda singkat dan kembali lagi.</p></div>
+</section>
+</main>
+<footer>🧬 BioPlay 11 • Belajar Biologi dengan cara yang lebih aktif, ringan, dan menyenangkan 🌱</footer>
+<div id="toast" class="toast"></div>
+
+<script>
+const questions=[
+{id:1,t:"cell",q:"Organel yang berfungsi sebagai tempat utama respirasi sel adalah ...",o:["Ribosom","Mitokondria","Lisosom","Badan Golgi"],a:1},
+{id:2,t:"cell",q:"Membran sel terutama berperan dalam ...",o:["Mengatur keluar-masuk zat","Membentuk tulang","Menghasilkan hemoglobin","Mencerna makanan"],a:0},
+{id:3,t:"cell",q:"Sintesis protein berlangsung pada ...",o:["Ribosom","Vakuola","Sentriol","Lisosom"],a:0},
+{id:4,t:"cell",q:"Perpindahan molekul dari konsentrasi tinggi ke rendah disebut ...",o:["Osmosis","Difusi","Endositosis","Eksositosis"],a:1},
+{id:5,t:"tissue",q:"Jaringan yang melapisi permukaan tubuh dan organ adalah ...",o:["Epitel","Otot","Saraf","Ikat"],a:0},
+{id:6,t:"tissue",q:"Jaringan pengangkut air dan mineral dari akar ke daun pada tumbuhan adalah ...",o:["Floem","Xilem","Epidermis","Kambium"],a:1},
+{id:7,t:"movement",q:"Tulang yang termasuk rangka aksial adalah ...",o:["Tulang paha","Tulang lengan","Tulang tengkorak","Tulang telapak kaki"],a:2},
+{id:8,t:"movement",q:"Kontraksi otot terjadi karena interaksi utama antara ...",o:["Aktin dan miosin","DNA dan RNA","Hemoglobin dan plasma","Kalsium dan fosfor"],a:0},
+{id:9,t:"movement",q:"Sendi yang memungkinkan gerakan satu arah seperti pada siku adalah ...",o:["Peluru","Engsel","Putar","Pelana"],a:1},
+{id:10,t:"circulation",q:"Sel darah yang berperan utama dalam pertahanan tubuh adalah ...",o:["Eritrosit","Leukosit","Trombosit","Plasma"],a:1},
+{id:11,t:"circulation",q:"Pembuluh yang membawa darah keluar dari jantung adalah ...",o:["Vena","Arteri","Kapiler","Venula"],a:1},
+{id:12,t:"circulation",q:"Bagian darah yang membantu proses pembekuan adalah ...",o:["Trombosit","Eritrosit","Plasma","Leukosit"],a:0},
+{id:13,t:"digestion",q:"Enzim amilase membantu mencerna ...",o:["Protein","Lemak","Karbohidrat","Vitamin"],a:2},
+{id:14,t:"digestion",q:"Penyerapan sebagian besar zat makanan terjadi di ...",o:["Lambung","Usus halus","Usus besar","Kerongkongan"],a:1},
+{id:15,t:"digestion",q:"Empedu membantu pencernaan lemak dengan cara ...",o:["Mengemulsikan lemak","Memecah protein","Mengubah glukosa","Menyerap air"],a:0},
+{id:16,t:"respiration",q:"Pertukaran gas O2 dan CO2 di paru-paru terutama terjadi di ...",o:["Trakea","Bronkus","Alveolus","Laring"],a:2},
+{id:17,t:"respiration",q:"Otot utama yang berperan dalam inspirasi adalah ...",o:["Diafragma","Bisep","Trisep","Otot betis"],a:0},
+{id:18,t:"respiration",q:"Gas yang dibutuhkan sel untuk respirasi aerob adalah ...",o:["Nitrogen","Oksigen","Karbon dioksida","Metana"],a:1},
+{id:19,t:"excretion",q:"Organ utama pembentuk urine adalah ...",o:["Hati","Ginjal","Paru-paru","Kulit"],a:1},
+{id:20,t:"excretion",q:"Unit fungsional ginjal disebut ...",o:["Neuron","Nefron","Alveolus","Vili"],a:1},
+{id:21,t:"excretion",q:"Zat sisa nitrogen dari metabolisme protein yang banyak dikeluarkan melalui urine adalah ...",o:["Urea","Oksigen","Glukosa","Kalsium"],a:0}
+];
+const topics={cell:{name:"Sel",icon:"🔬",html:"<h3>🔬 Sel</h3><p>Sel adalah unit struktural dan fungsional terkecil makhluk hidup.</p><ul><li><b>Membran sel:</b> mengatur lalu lintas zat dan membantu menjaga keseimbangan internal sel.</li><li><b>Nukleus:</b> menyimpan sebagian besar materi genetik dan mengatur aktivitas sel.</li><li><b>Mitokondria:</b> tempat utama respirasi aerob dan produksi ATP.</li><li><b>Ribosom:</b> tempat sintesis protein.</li><li><b>Transport membran:</b> dapat berlangsung melalui difusi, osmosis, maupun transport aktif.</li></ul>"},tissue:{name:"Jaringan",icon:"🧫",html:"<h3>🧫 Jaringan</h3><p>Jaringan adalah kumpulan sel yang memiliki struktur dan fungsi yang berkaitan.</p><ul><li>Pada hewan, jaringan utama meliputi <b>epitel, ikat, otot, dan saraf</b>.</li><li>Pada tumbuhan dikenal jaringan meristem dan jaringan dewasa seperti epidermis, parenkim, penyokong, serta pengangkut.</li><li><b>Xilem</b> mengangkut air dan mineral; <b>floem</b> mengangkut hasil fotosintesis.</li></ul>"},movement:{name:"Sistem Gerak",icon:"🦴",html:"<h3>🦴 Sistem Gerak</h3><p>Sistem gerak manusia terdiri atas alat gerak pasif (tulang) dan aktif (otot).</p><ul><li>Tulang memberi bentuk, melindungi organ, menjadi tempat melekatnya otot, dan berperan dalam pembentukan sel darah.</li><li>Sendi dapat berupa engsel, peluru, putar, pelana, dan lainnya.</li><li>Gerak otot berkaitan dengan interaksi protein <b>aktin dan miosin</b>.</li></ul>"},circulation:{name:"Peredaran Darah",icon:"❤️",html:"<h3>❤️ Sistem Peredaran Darah</h3><p>Sistem kardiovaskular mengedarkan oksigen, zat makanan, hormon, dan zat sisa.</p><ul><li>Jantung memiliki empat ruang: dua atrium dan dua ventrikel.</li><li><b>Arteri</b> membawa darah keluar dari jantung, sedangkan <b>vena</b> menuju jantung.</li><li>Eritrosit mengangkut oksigen, leukosit berperan dalam pertahanan, dan trombosit membantu pembekuan.</li></ul>"},digestion:{name:"Pencernaan",icon:"🍎",html:"<h3>🍎 Sistem Pencernaan</h3><p>Makanan diolah secara mekanik dan kimiawi agar zat gizinya dapat diserap.</p><ul><li>Mulut memulai pencernaan; amilase membantu memecah pati.</li><li>Lambung mengaduk makanan dan menghasilkan asam serta enzim.</li><li>Usus halus menjadi lokasi utama pencernaan lanjutan dan penyerapan zat makanan.</li><li>Usus besar terutama menyerap air dan membantu pembentukan feses.</li></ul>"},respiration:{name:"Pernapasan",icon:"🫁",html:"<h3>🫁 Sistem Pernapasan</h3><p>Pernapasan memasok oksigen dan membantu membuang karbon dioksida.</p><ul><li>Udara melewati hidung, faring, laring, trakea, bronkus, bronkiolus, lalu alveolus.</li><li>Pertukaran gas berlangsung di <b>alveolus</b> melalui difusi.</li><li>Diafragma membantu perubahan volume rongga dada saat bernapas.</li></ul>"},excretion:{name:"Ekskresi",icon:"💧",html:"<h3>💧 Sistem Ekskresi</h3><p>Ekskresi adalah proses pengeluaran zat sisa metabolisme.</p><ul><li>Ginjal membentuk urine dan membantu mengatur keseimbangan air serta ion.</li><li>Unit fungsional ginjal adalah <b>nefron</b>, dengan proses seperti filtrasi, reabsorpsi, dan sekresi.</li><li>Organ ekskresi lain meliputi paru-paru, kulit, dan hati dengan fungsi yang berbeda.</li></ul>"}};
+
+function showView(id){document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(id).classList.add("active");document.querySelectorAll(".navlinks button").forEach(b=>b.classList.toggle("active",b.dataset.view===id));window.scrollTo({top:0,behavior:"smooth"})}
+document.querySelectorAll(".navlinks button").forEach(b=>b.onclick=()=>showView(b.dataset.view));
+function toast(t){let x=document.getElementById("toast");x.textContent=t;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),2200)}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function getQ(filter="all"){let arr=filter==="all"?questions:questions.filter(q=>q.t===filter);return arr[Math.floor(Math.random()*arr.length)]}
+function renderQuestion(q,container,callback){
+container.innerHTML=`<div class="questionbox"><b>🧠 ${q.q}</b><div class="options">${q.o.map((x,i)=>`<button class="option" data-i="${i}">${String.fromCharCode(65+i)}. ${x}</button>`).join("")}</div><div class="status" id="qstatus"></div></div>`;
+container.querySelectorAll(".option").forEach(btn=>btn.onclick=()=>{let ok=+btn.dataset.i===q.a;container.querySelectorAll(".option").forEach(x=>x.disabled=true);btn.classList.add(ok?"correct":"wrong");container.querySelector("#qstatus").textContent=ok?"✅ Benar!":"❌ Belum tepat. Jawaban benar: "+q.o[q.a];callback(ok)});
+}
+function startMaze(){showView("games");document.getElementById("gameMenu").classList.add("hidden");document.getElementById("battleGame").classList.add("hidden");let el=document.getElementById("mazeGame");el.classList.remove("hidden");mazeLevel=1;buildMaze()}
+let mazeLevel=1, mazePos=0, mazeGrid=[];
+function buildMaze(){const el=document.getElementById("mazeGame");mazePos=0;const levels=[
+["🧬","🧫","🧬","🧫","🧬","🧫","🧬","🧫","🧬","🧬","🧬","🧫","🧫","🧫","🧬","🧬","🧬","🧫","🧬","🧫","🧬","🧬","🧬","🧫","🧬","🧫","🧬","🧫","🚪","🧬","🧬","🧫","🧬","🧫","🧬","🧬","🧬","🧫","🧬","🧬","🧫","🧬","🧬","🧬","🧫","🧬","🧫","🧬","🧫","🧬","🧬","🧬","🧫","🧬","🧫","🧬","🧬","🧫","🧬","🧬","🧬","🧫","🧬","🧫","🧬","🧬","🧬","🧫","🧬","🧬","🧫","🧬","🧬","🧬","🧫","🧬","🧬","🧬","🧫","🧬","🧬","🧫"],
+];
+let rows=9,cols=9; // deterministic maze-like pattern, then ensure connected path via a carved route
+mazeGrid=Array(rows*cols).fill(0);
+for(let i=0;i<mazeGrid.length;i++)mazeGrid[i]=levels[0][i]==="🧫"?1:0;
+let route=[0,1,2,11,20,29,38,47,56,65,74,75,76,77,78,79,80];
+route.forEach(i=>mazeGrid[i]=0); mazeGrid[80]=2;
+el.innerHTML=`<div class="game-top"><div><h2>🧩 Maze Biology — Level ${mazeLevel}/5</h2><p>Temukan jalan menuju 🚪. Kamu boleh memakai keyboard atau tombol kontrol.</p></div><button class="btn alt" onclick="exitGame()">← Keluar</button></div><div class="levels">${[1,2,3,4,5].map(n=>`<span class="level ${n<mazeLevel?"done":n===mazeLevel?"current":""}">Level ${n}</span>`).join("")}</div><div class="game-board"><div id="maze" class="maze"></div><div class="controls"><button class="blank"></button><button onclick="moveMaze(-1,0)">⬆️</button><button class="blank"></button><button onclick="moveMaze(0,-1)">⬅️</button><button onclick="moveMaze(1,0)">⬇️</button><button onclick="moveMaze(0,1)">➡️</button></div><div id="mazeQ"></div></div>`;
+drawMaze()}
+function drawMaze(){let m=document.getElementById("maze");m.innerHTML=mazeGrid.map((v,i)=>`<div class="maze-cell ${v===1?"wall":"floor"}">${i===mazePos?'<span class="player">🧑‍🔬</span>':v===2?'<span class="exit">🚪</span>':v===1?"":(i%7===0?"🦠":"")}</div>`).join("")}
+function moveMaze(dr,dc){let r=Math.floor(mazePos/9),c=mazePos%9,nr=r+dr,nc=c+dc;if(nr<0||nr>=9||nc<0||nc>=9)return;let np=nr*9+nc;if(mazeGrid[np]===1)return;mazePos=np;drawMaze();if(np===80)mazeQuestion()}
+function mazeQuestion(){let q=getQ();renderQuestion(q,document.getElementById("mazeQ"),ok=>{if(ok){if(mazeLevel<5){mazeLevel++;toast("🎉 Level berikutnya terbuka!");setTimeout(buildMaze,700)}else{toast("🏆 Kamu menamatkan Maze Biology!");document.getElementById("mazeQ").innerHTML+="<p>🏆 <b>Hebat! Semua 5 level selesai.</b></p>"}}else{toast("Coba lagi!");mazePos=0;drawMaze()}})}
+document.addEventListener("keydown",e=>{if(!document.getElementById("mazeGame").classList.contains("hidden")){let k=e.key.toLowerCase();if(["arrowup","w"].includes(k))moveMaze(-1,0);if(["arrowdown","s"].includes(k))moveMaze(1,0);if(["arrowleft","a"].includes(k))moveMaze(0,-1);if(["arrowright","d"].includes(k))moveMaze(0,1)}})
+function exitGame(){document.getElementById("gameMenu").classList.remove("hidden");document.getElementById("mazeGame").classList.add("hidden");document.getElementById("battleGame").classList.add("hidden")}
+let battleLevel=1,bhp=100,mhp=100;
+const monsters=["🦠","👾","🧫","🧟","🧬"];
+function startBattle(){showView("games");document.getElementById("gameMenu").classList.add("hidden");document.getElementById("mazeGame").classList.add("hidden");let el=document.getElementById("battleGame");el.classList.remove("hidden");battleLevel=1;bhp=100;mhp=100;buildBattle()}
+function buildBattle(){mhp=100;bhp=Math.max(35,bhp);let el=document.getElementById("battleGame");el.innerHTML=`<div class="game-top"><div><h2>👾 Bio Battle — Level ${battleLevel}/5</h2><p>Jawab soal untuk menyerang makhluk pengganggu ekosistem!</p></div><button class="btn alt" onclick="exitGame()">← Keluar</button></div><div class="levels">${[1,2,3,4,5].map(n=>`<span class="level ${n< battleLevel?"done":n===battleLevel?"current":""}">Level ${n}</span>`).join("")}</div><div class="battle"><div class="arena"><div style="text-align:center"><div class="herochar">🧑‍🔬</div><b>Peneliti</b><div class="hp playerhp"><i style="width:${bhp}%"></i></div></div><div style="font-size:34px">⚡</div><div style="text-align:center"><div class="monster">${monsters[battleLevel-1]}</div><b>Bio-Monster</b><div class="hp"><i id="monsterHP" style="width:${mhp}%"></i></div></div></div><div id="battleQ"></div></div>`;battleQuestion()}
+function battleQuestion(){let q=getQ();renderQuestion(q,document.getElementById("battleQ"),ok=>{if(ok){mhp-=34;document.getElementById("monsterHP").style.width=Math.max(0,mhp)+"%";toast("⚔️ Serangan berhasil!");if(mhp<=0){if(battleLevel<5){battleLevel++;toast("🌟 Level naik!");setTimeout(buildBattle,900)}else{setTimeout(()=>document.getElementById("battleQ").innerHTML='<div class="questionbox">🏆 <b>Selamat! Kamu mengalahkan semua 5 Bio-Monster!</b></div>',700)}}else setTimeout(battleQuestion,850)}else{bhp-=34;let hp=document.querySelector(".playerhp i");if(hp)hp.style.width=Math.max(0,bhp)+"%";if(bhp<=0){toast("💥 Kalah! Kembali ke level sebelumnya.");battleLevel=Math.max(1,battleLevel-1);setTimeout(buildBattle,900)}else setTimeout(battleQuestion,850)}})}
+function newPractice(){let filter=document.getElementById("topicFilter").value,q=getQ(filter),area=document.getElementById("practiceArea");renderQuestion(q,area,()=>{});area.dataset.q=q.id}
+newPractice();
+const topicList=document.getElementById("topicList");topicList.innerHTML=Object.entries(topics).map(([k,v])=>`<button onclick="showTopic('${k}',this)">${v.icon} ${v.name}</button>`).join("");
+function showTopic(k,btn){document.querySelectorAll(".topic-list button").forEach(x=>x.classList.remove("active"));btn.classList.add("active");document.getElementById("noteContent").innerHTML=topics[k].html}
+showTopic("cell",topicList.firstElementChild);
+
+// Pomodoro
+let seconds=1500,timerRunning=false,timerInt=null;
+function renderTimer(){let m=Math.floor(seconds/60),s=seconds%60;document.getElementById("timer").textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0")}
+function setTimer(min){clearInterval(timerInt);timerRunning=false;seconds=min*60;document.getElementById("timerBtn").textContent="▶ Mulai";document.getElementById("pomoState").textContent="Siap belajar?";renderTimer()}
+function setCustom(){let n=parseInt(document.getElementById("customMin").value)||25;setTimer(Math.max(1,Math.min(180,n)))}
+function toggleTimer(){if(timerRunning){clearInterval(timerInt);timerRunning=false;document.getElementById("timerBtn").textContent="▶ Lanjut";document.getElementById("pomoState").textContent="Timer dijeda."}else{timerRunning=true;document.getElementById("timerBtn").textContent="⏸ Jeda";document.getElementById("pomoState").textContent="🔥 Fokus! Jauhkan distraksi.";timerInt=setInterval(()=>{seconds--;renderTimer();if(seconds<=0){clearInterval(timerInt);timerRunning=false;seconds=0;document.getElementById("timerBtn").textContent="▶ Mulai";document.getElementById("pomoState").textContent="🎉 Sesi selesai! Saatnya istirahat.";toast("🎉 Waktu fokus selesai!")}},1000)}}
+function resetTimer(){setTimer(25)}
+</script>
+</body>
+</html>
